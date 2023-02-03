@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './UI/Button';
 
 const NewTask = props => {
   const [taskName, setTaskName] = useState('');
@@ -20,7 +21,7 @@ const NewTask = props => {
         minLength="4"
         required
       />
-      <button type="submit">Add</button>
+      <Button>Add</Button>
     </form>
   );
 };
