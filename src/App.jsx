@@ -8,12 +8,20 @@ const App = () => {
   const handleCreateTask = newTask => {
     setTasks(tasks => [{ id: tasks.length.toString(), ...newTask }, ...tasks]);
   };
+  const deleteTask = taskId => {
+    setTasks(tasks.filter(task => task.id !== taskId));
+  };
   console.log('app');
+
   return (
     <>
       <h1>Todo App</h1>
       <NewTask onCreateTask={handleCreateTask} />
-      {tasks.length ? <TaskList tasks={tasks} /> : <p>No tasks avaiable</p>}
+      {tasks.length ? (
+        <TaskList onDeleteTask={deleteTask} tasks={tasks} />
+      ) : (
+        <p>No tasks avaiable</p>
+      )}
     </>
   );
 };
