@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import NewTask from './components';
+import Navigation from './components/Navigation';
 import TaskList from './components/Task';
 
 const App = () => {
@@ -16,7 +16,8 @@ const App = () => {
   return (
     <>
       <h1>Todo App</h1>
-      <NewTask onCreateTask={handleCreateTask} />
+      <Navigation />
+      {/* <NewTask onCreateTask={handleCreateTask} /> */}
       {tasks.length ? (
         <TaskList onDeleteTask={deleteTask} tasks={tasks} />
       ) : (
