@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { TasksDispatchContext } from '../../context/TasksContext';
+
 import Button from '../UI/Button';
 
 const Task = props => {
+  const dispatch = useContext(TasksDispatchContext);
+
+  const handleCheckboxClick = event => {
+    // Update reference value:
+
+    dispatch({
+      type: 'checked',
+      task: {
+        ...props.task,
+        done: event.target.checked,
+      },
+    });
+  };
   return (
     <>
-      <li key={props.id}>
-        <input type="checkbox" id="task" name="task" />
-        <label htmlFor="task">{props.name}</label>
+      <li>
+        <input
+          type="checkbox"
+          id="task"
+          name="task"
+          checked={props.task.done}
+          onChange={handleCheckboxClick}
+        />
+        <label htmlFor="task">{props.task.name}</label>
       </li>
 
       <Button>X</Button>

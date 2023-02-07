@@ -19,7 +19,10 @@ const tasksReducer = (tasks, action) => {
         ...tasks,
       ];
     }
-
+    case 'checked': {
+      const index = tasks.findIndex(task => task.id === action.task.id);
+      tasks[index] = action.task;
+    }
     case 'delete': {
       return tasks.filter(task => task.id !== action.id);
     }
