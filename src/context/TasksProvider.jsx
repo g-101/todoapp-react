@@ -1,9 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 import React, { useReducer } from 'react';
 import { TasksContext, TasksDispatchContext } from './TasksContext';
 
 const initialTasks = [
-  { id: 't1', name: 'Tomar Café', done: true },
-  { id: 't2', name: 'Praticar Programação', done: false },
+  { id: uuidv4(), name: 'Tomar Café', done: true },
+  { id: uuidv4(), name: 'Praticar Programação', done: false },
 ];
 
 const tasksReducer = (tasks, action) => {
@@ -11,7 +12,7 @@ const tasksReducer = (tasks, action) => {
     case 'add': {
       return [
         {
-          id: 't' + tasks.length.toString(),
+          id: uuidv4(),
           name: action.name,
           done: false,
         },
