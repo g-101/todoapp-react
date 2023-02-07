@@ -1,6 +1,19 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useState } from 'react';
 import Navigation from './components/Navigation';
-import TaskList from './components/Task';
+import { AllPage, ActivePage, CompletedPage } from './pages';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navigation />,
+    children: [
+      { path: '/', element: <AllPage /> },
+      { path: '/active', element: <ActivePage /> },
+      { path: '/completed', element: <CompletedPage /> },
+    ],
+  },
+]);
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -11,18 +24,10 @@ const App = () => {
   const deleteTask = taskId => {
     setTasks(tasks.filter(task => task.id !== taskId));
   };
-  console.log('app');
 
   return (
     <>
-      <h1>Todo App</h1>
-      <Navigation />
-      {/* <NewTask onCreateTask={handleCreateTask} /> */}
-      {tasks.length ? (
-        <TaskList onDeleteTask={deleteTask} tasks={tasks} />
-      ) : (
-        <p>No tasks avaiable</p>
-      )}
+      <RouterProvider router={router} />
     </>
   );
 };
