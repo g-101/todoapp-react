@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TasksDispatchContext } from '../../context/TasksContext';
 import Button from '../UI/Button';
 
-const NewTask = props => {
+const NewTask = () => {
+  const dispatch = useContext(TasksDispatchContext);
+
   const [taskName, setTaskName] = useState('');
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    props.onCreateTask({
+    dispatch({
+      type: 'add',
       name: taskName,
     });
     setTaskName('');

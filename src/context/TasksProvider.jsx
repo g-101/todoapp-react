@@ -1,12 +1,17 @@
 import React, { useReducer } from 'react';
 import { TasksContext, TasksDispatchContext } from './TasksContext';
 
+const initialTasks = [
+  { id: 't1', name: 'Tomar Café', done: true },
+  { id: 't2', name: 'Praticar Programação', done: false },
+];
+
 const tasksReducer = (tasks, action) => {
   switch (action.type) {
     case 'add': {
       return [
         {
-          id: action.id.toString(),
+          id: 't' + tasks.length.toString(),
           name: action.name,
           done: false,
         },
@@ -15,25 +20,12 @@ const tasksReducer = (tasks, action) => {
     }
 
     case 'delete': {
-      return tasks.filter(t => t.id !== action.id);
+      return tasks.filter(task => task.id !== action.id);
     }
     default: {
       throw Error('Unknown action: ' + action.type);
     }
   }
-};
-
-const initialTasks = [
-  { id: 't1', name: 'Tomar Café', done: true },
-  { id: 't2', name: 'Praticar Programação', done: false },
-];
-
-export const useTasks = () => {
-  return useContext(TasksContext);
-};
-
-export const useTasksDispatch = () => {
-  return useContext(TasksDispatchContext);
 };
 
 const TasksProvider = props => {
@@ -49,3 +41,11 @@ const TasksProvider = props => {
 };
 
 export default TasksProvider;
+
+export const useTasks = () => {
+  return useContext(TasksContext);
+};
+
+export const useTasksDispatch = () => {
+  return useContext(TasksDispatchContext);
+};
