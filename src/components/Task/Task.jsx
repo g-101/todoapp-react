@@ -17,6 +17,13 @@ const Task = props => {
       },
     });
   };
+  const handleButtonClick = () => {
+    dispatch({
+      type: 'delete',
+      id: props.task.id,
+    });
+  };
+
   return (
     <>
       <li>
@@ -30,7 +37,7 @@ const Task = props => {
         <label htmlFor="task">{props.task.name}</label>
       </li>
 
-      <Button>X</Button>
+      <Button onClick={handleButtonClick}>X</Button>
     </>
   );
 };
