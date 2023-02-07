@@ -6,9 +6,15 @@ const Navigation = () => {
     <header>
       <nav>
         <ul>
-          <li id="all">All</li>
-          <li id="active">Active</li>
-          <li id="completed">Completed</li>
+          <li>
+            <button>All</button>
+          </li>
+          <li>
+            <button>Active</button>
+          </li>
+          <li>
+            <button>Completed</button>
+          </li>
         </ul>
       </nav>
       <NewTask />
