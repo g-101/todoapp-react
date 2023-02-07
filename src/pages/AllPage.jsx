@@ -1,7 +1,12 @@
 import React from 'react';
+import TaskList from '../components/Task/TaskList';
 
 const AllPage = () => {
-  return <div>AllPage</div>;
+  return (
+    <>
+      <TaskList />
+    </>
+  );
 };
 
 export default AllPage;
