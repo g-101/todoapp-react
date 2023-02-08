@@ -1,14 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { TasksDispatchContext } from '../../context/TasksContext';
-
+import { useTasksDispatch } from '../../context/TasksProvider';
 import Button from '../UI/Button';
 
 const Task = props => {
-  const dispatch = useContext(TasksDispatchContext);
+  const { dispatch } = useTasksDispatch();
 
   const handleCheckboxClick = event => {
-    // Update reference value:
-
     dispatch({
       type: 'checked',
       task: {

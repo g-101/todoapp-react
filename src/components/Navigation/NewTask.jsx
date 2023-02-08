@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
-import { TasksDispatchContext } from '../../context/TasksContext';
+import React, { useState } from 'react';
+import { useTasksDispatch } from '../../context/TasksProvider';
 import Button from '../UI/Button';
 
 const NewTask = () => {
-  const dispatch = useContext(TasksDispatchContext);
+  const { dispatch } = useTasksDispatch();
 
   const [taskName, setTaskName] = useState('');
 

@@ -1,19 +1,20 @@
-import React from 'react';
+import { useTasksDispatch } from '../../context/TasksProvider';
 import NewTask from './NewTask';
 
 const Navigation = () => {
+  const { dispatchIsShowList } = useTasksDispatch();
   return (
     <header>
       <nav>
         <ul>
           <li>
-            <button>All</button>
+            <button onClick={() => dispatchIsShowList({ type: 'all' })}>All</button>
           </li>
           <li>
-            <button>Active</button>
+            <button onClick={() => dispatchIsShowList({ type: 'active' })}>Active</button>
           </li>
           <li>
-            <button>Completed</button>
+            <button onClick={() => dispatchIsShowList({ type: 'done' })}>Done</button>
           </li>
         </ul>
       </nav>
