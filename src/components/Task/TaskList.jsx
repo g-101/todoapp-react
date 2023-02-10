@@ -11,7 +11,6 @@ const TaskList = () => {
 
   return (
     <div className={styles.tasklist}>
-      {/* {!tasks.length && <p>Não há tarefas disponiveis</p>} */}
       {isShowList.all && (
         <ul>
           {tasks.map(task => (
@@ -23,30 +22,39 @@ const TaskList = () => {
           ))}
         </ul>
       )}
+
       {isShowList.active && (
         <ul>
-          {filterActive.map(task => (
-            <li key={task.id} className={styles.item}>
-              <span className={styles.group}>
-                <Task task={task} />
-              </span>
-            </li>
-          ))}
+          {filterDone.length ? (
+            filterActive.map(task => (
+              <li key={task.id} className={styles.item}>
+                <span className={styles.group}>
+                  <Task task={task} />
+                </span>
+              </li>
+            ))
+          ) : (
+            <p>No active tasks available</p>
+          )}
         </ul>
       )}
 
       {isShowList.done && (
         <ul>
-          {filterDone.map(task => (
-            <li key={task.id} className={styles.item}>
-              <span className={styles.group}>
-                <Task task={task} />
-              </span>
-              <span className={styles.icon}>
-                <Icon id={task.id} />
-              </span>
-            </li>
-          ))}
+          {filterDone.length ? (
+            filterDone.map(task => (
+              <li key={task.id} className={styles.item}>
+                <span className={styles.group}>
+                  <Task task={task} />
+                </span>
+                <span className={styles.icon}>
+                  <Icon id={task.id} />
+                </span>
+              </li>
+            ))
+          ) : (
+            <p>No tasks available</p>
+          )}
         </ul>
       )}
     </div>
