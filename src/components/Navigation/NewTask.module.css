@@ -1,0 +1,24 @@
+.newtask {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  gap: 16px;
+}
+.newtask input {
+  display: inline-block;
+  padding: 16px 24px 16px 8px;
+  border-radius: 8px;
+  border: 1px solid #d3d1d1;
+  width: 80%;
+  outline: 0;
+}
+
+.button {
+  border-radius: 8px;
+  background-color: #5050ff;
+  border: none;
+  color: #fafcff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px 32px;
+}

@@ -1,5 +1,3 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AllPage, ActivePage, CompletedPage } from './pages';
 import Navigation from './components/Navigation';
 import TasksProvider from './context/TasksProvider';
 import TaskList from './components/Task/TaskList';

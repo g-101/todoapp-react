@@ -1,20 +1,30 @@
 import { useTasksDispatch } from '../../context/TasksProvider';
 import NewTask from './NewTask';
+import styles from './Navigation.module.css';
 
 const Navigation = () => {
   const { dispatchIsShowList } = useTasksDispatch();
+
   return (
-    <header>
+    <header className={styles.navigation}>
+      <h1>#todo</h1>
+
       <nav>
         <ul>
           <li>
-            <button onClick={() => dispatchIsShowList({ type: 'all' })}>All</button>
+            <a href="#" onClick={() => dispatchIsShowList({ type: 'all' })}>
+              All
+            </a>
           </li>
           <li>
-            <button onClick={() => dispatchIsShowList({ type: 'active' })}>Active</button>
+            <a href="#" onClick={() => dispatchIsShowList({ type: 'active' })}>
+              Active
+            </a>
           </li>
           <li>
-            <button onClick={() => dispatchIsShowList({ type: 'done' })}>Done</button>
+            <a href="#" onClick={() => dispatchIsShowList({ type: 'done' })}>
+              Done
+            </a>
           </li>
         </ul>
       </nav>

@@ -1,0 +1,88 @@
+.navigation {
+  width: 512px;
+  margin: 24px auto;
+  text-align: center;
+}
+
+.navigation .title {
+  border: 0;
+  border: none;
+}
+
+.navigation h1 {
+  padding: 12px;
+  vertical-align: baseline;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 24px;
+  align-items: center;
+  list-style: none;
+  border-bottom: 1px solid #d3d1d1;
+}
+
+.navigation li {
+  display: inline-block;
+  padding: 12px 0;
+  vertical-align: middle;
+}
+
+.navigation a:hover,
+.navigation a:focus,
+.navigation a:active {
+  color: #999;
+  text-decoration: none;
+}
+
+.navigation a {
+  text-decoration: none;
+  transition: color 0.1s, background-color 0.1s;
+}
+
+.navigation a {
+  position: relative;
+  display: block;
+  padding: 12px 0;
+  margin: 0 12px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: color 0.1s, background-color 0.1s, padding 0.2s ease-in;
+}
+.navigation a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #5050ff;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: color 0.1s, transform 0.2s ease-out;
+}
+
+.navigation a:active::before {
+  background-color: #5050ff;
+}
+.navigation a:hover::before,
+.navigation a:focus::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.navigation a:link,
+.navigation a:visited,
+.navigation a:hover,
+.navigation a:active {
+  color: inherit;
+}
+
+.navigation a.active {
+  border-bottom: 4px solid #5050ff;
+}

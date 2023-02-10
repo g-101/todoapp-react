@@ -1,10 +1,12 @@
 import { useTasksDispatch } from '../../context/TasksProvider';
-import Button from '../UI/Button';
+import styles from './Task.module.css';
 
 const Task = props => {
   const { dispatch } = useTasksDispatch();
 
-  const handleCheckboxClick = event => {
+  const lineThrough = props.task.done ? styles['task-done'] : '';
+
+  const handleCheckboxChange = event => {
     dispatch({
       type: 'checked',
       task: {
@@ -13,27 +15,20 @@ const Task = props => {
       },
     });
   };
-  const handleButtonClick = () => {
-    dispatch({
-      type: 'delete',
-      id: props.task.id,
-    });
-  };
 
   return (
     <>
-      <li>
-        <input
-          type="checkbox"
-          id="task"
-          name="task"
-          checked={props.task.done}
-          onChange={handleCheckboxClick}
-        />
-        <label htmlFor="task">{props.task.name}</label>
-      </li>
-
-      <Button onClick={handleButtonClick}>X</Button>
+      <input
+        type="checkbox"
+        id="task"
+        name="task"
+        checked={props.task.done}
+        onChange={handleCheckboxChange}
+        className={styles.check}
+      />
+      <label className={lineThrough} htmlFor="task">
+        {props.task.name}
+      </label>
     </>
   );
 };

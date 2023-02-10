@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTasksDispatch } from '../../context/TasksProvider';
-import Button from '../UI/Button';
+import styles from './NewTask.module.css';
 
 const NewTask = () => {
   const { dispatch } = useTasksDispatch();
@@ -17,15 +17,19 @@ const NewTask = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className={styles.newtask}>
       <input
         type="text"
         value={taskName}
         onChange={event => setTaskName(event.target.value)}
         minLength="4"
+        placeholder="add task"
+        autoFocus
         required
       />
-      <Button>Add</Button>
+      <button type="submit" className={styles.button}>
+        Add
+      </button>
     </form>
   );
 };

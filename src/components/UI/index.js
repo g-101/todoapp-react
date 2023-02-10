@@ -1,2 +1,2 @@
-import Button from './Button';
-export default Button;
+import Icon from './Icon';
+export default Icon;
