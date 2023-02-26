@@ -11,7 +11,7 @@
 
 Um aplicativo de gerenciar tarefas.
 
-<a align="center" href="#">Acesse a DEMO</a>
+<a align="center" href="https://todoapp-react-g-101.vercel.app/">Acesse a DEMO</a>
 
 ## ⚙️ Funcionalidades
 
@@ -64,7 +64,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [] Usuario poder deletar todas as tarefas.
 - [] Editar o nome da tarefa.
 - [] Reorganizar as tarefas na ordem desejada.
-- [] Melhorar a validação do campo de busca.
+- [x] Melhorar a validação do campo de busca.
 - [] Darkmode.
 - [] Layout Mobile.
 
