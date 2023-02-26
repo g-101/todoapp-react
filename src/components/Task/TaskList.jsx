@@ -25,7 +25,7 @@ const TaskList = () => {
 
       {isShowList.active && (
         <ul>
-          {filterDone.length ? (
+          {filterActive.length ? (
             filterActive.map(task => (
               <li key={task.id} className={styles.item}>
                 <span className={styles.group}>
@@ -34,7 +34,7 @@ const TaskList = () => {
               </li>
             ))
           ) : (
-            <p>No active tasks available</p>
+            <p>No tasks available</p>
           )}
         </ul>
       )}
