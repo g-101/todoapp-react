@@ -1,5 +1,4 @@
 import { useTasksDispatch } from '../../context/TasksProvider';
-import NewTask from './NewTask';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
@@ -28,7 +27,6 @@ const Navigation = () => {
           </li>
         </ul>
       </nav>
-      <NewTask />
     </header>
   );
 };

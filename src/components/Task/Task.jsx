@@ -24,7 +24,6 @@ const Task = props => {
         name="task"
         checked={props.task.done}
         onChange={handleCheckboxChange}
-        className={styles.check}
       />
       <label className={lineThrough} htmlFor="task">
         {props.task.name}

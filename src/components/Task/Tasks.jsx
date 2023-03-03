@@ -1,42 +1,49 @@
 import { useTasks } from '../../context/TasksProvider';
+import NewTask from './NewTask';
 import Task from './Task';
 import Icon from '../UI/Icon';
-import styles from './TaskList.module.css';
+import styles from './Tasks.module.css';
 
-const TaskList = () => {
+const Tasks = () => {
   const { tasks, isShowList } = useTasks();
 
   const filterActive = tasks.filter(task => !task.done);
   const filterDone = tasks.filter(task => task.done);
 
   return (
-    <div className={styles.tasklist}>
+    <div className={styles.tasks}>
       {isShowList.all && (
-        <ul>
-          {tasks.map(task => (
-            <li key={task.id} className={styles.item}>
-              <span className={styles.group}>
-                <Task task={task} />
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {isShowList.active && (
-        <ul>
-          {filterActive.length ? (
-            filterActive.map(task => (
+        <>
+          <NewTask />
+          <ul>
+            {tasks.map(task => (
               <li key={task.id} className={styles.item}>
                 <span className={styles.group}>
                   <Task task={task} />
                 </span>
               </li>
-            ))
-          ) : (
-            <p>No tasks available</p>
-          )}
-        </ul>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {isShowList.active && (
+        <>
+          <NewTask />
+          <ul>
+            {filterActive.length ? (
+              filterActive.map(task => (
+                <li key={task.id} className={styles.item}>
+                  <span className={styles.group}>
+                    <Task task={task} />
+                  </span>
+                </li>
+              ))
+            ) : (
+              <p>No tasks available</p>
+            )}
+          </ul>
+        </>
       )}
 
       {isShowList.done && (
@@ -61,4 +68,4 @@ const TaskList = () => {
   );
 };
 
-export default TaskList;
+export default Tasks;

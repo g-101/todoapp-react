@@ -12,12 +12,10 @@ const Icon = props => {
   };
 
   return (
-    <>
-      <img
-        onClick={handleClick}
-        src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png"
-      />
-    </>
+    <img
+      onClick={handleClick}
+      src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png"
+    />
   );
 };
 

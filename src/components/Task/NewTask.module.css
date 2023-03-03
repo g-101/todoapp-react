@@ -1,0 +1,74 @@
+.newtask,
+.invalid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25rem auto;
+  gap: 1rem;
+}
+.newtask input,
+.invalid input {
+  display: block;
+  font-size: 1rem;
+  padding: 1rem 1.5rem 1rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid #d3d1d1;
+  width: 90%;
+  outline: 0;
+}
+
+.invalid input {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
+.invalid input:focus {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
+
+.invalid-paragraph {
+  color: #b40e0e;
+}
+
+.invalid .button {
+  display: block;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  background-color: #5050ff;
+  border: none;
+  color: #fafcff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1rem 2rem;
+}
+
+.newtask .button {
+  display: block;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  background-color: #5050ff;
+  border: none;
+  color: #fafcff;
+  cursor: pointer;
+  padding: 1rem 2rem;
+}
+
+.button:hover {
+  background-color: #7171f1;
+}
+
+@media (min-width: 640px) {
+  .newtask,
+  .invalid {
+    flex-wrap: nowrap;
+  }
+  .newtask input,
+  .invalid input,
+  .newtask .button,
+  .invalid .button {
+    display: inline-block;
+    font-size: 1rem;
+  }
+}
