@@ -66,7 +66,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [] Reorganizar as tarefas na ordem desejada.
 - [x] Melhorar a validação do campo de busca.
 - [] Darkmode.
-- [] Layout Mobile.
+- [x] Layout Responsivo.
 
 ## Status
 
