@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useTasksDispatch } from '../../context/TasksProvider';
 import styles from './NewTask.module.css';
 
-const isLetter = inputValue => {
+const isNumeric = inputValue => {
   const value = inputValue.trim();
-  var regex = /^[a-zA-Z]+$/;
+  const regex = /^[A-Za-z\s]*$/;
 
   return !value.match(regex);
 };
@@ -17,7 +17,12 @@ const NewTask = () => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (taskName.trim() === '' || isLetter(taskName) || taskName.trim().length < 3) {
+    if (
+      taskName.trim() === '' ||
+      isNumeric(taskName) ||
+      taskName.trim().length < 3 ||
+      taskName.trim().length > 25
+    ) {
       setTaskIsValid(false);
       return;
     }
@@ -38,6 +43,7 @@ const NewTask = () => {
             type="text"
             placeholder="add task"
             minLength="3"
+            maxLength="25"
             autoFocus
             value={taskName}
             onChange={event => setTaskName(event.target.value)}
